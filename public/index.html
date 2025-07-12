@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino Game - Multiplayer by Tevin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🦖 Dino Game - Multiplayer 🦖</h1>
+        <p class="creator-tag">Created by <strong>Tevin</strong></p>
+        
+        <div id="lobby" class="lobby">
+            <h2>Join the Game</h2>
+            <div class="player-input">
+                <input type="text" id="playerName" placeholder="Enter your name" maxlength="20">
+                <button id="joinBtn">Join Game</button>
+            </div>
+            <div id="waitingMessage" class="waiting-message" style="display: none;">
+                <p>Waiting for another player...</p>
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+
+        <div id="gameArea" class="game-area" style="display: none;">
+            <div class="game-header">
+                <div class="player-info">
+                    <h3>Player 1</h3>
+                    <div class="score">Distance: <span id="player1Score">0</span></div>
+                </div>
+                <div class="game-status">
+                    <div id="gameStatus">Ready to start!</div>
+                </div>
+                <div class="player-info">
+                    <h3>Player 2</h3>
+                    <div class="score">Distance: <span id="player2Score">0</span></div>
+                </div>
+            </div>
+
+            <div class="game-canvases">
+                <div class="canvas-container">
+                    <canvas id="player1Canvas" width="400" height="400"></canvas>
+                    <div class="player-label">Player 1</div>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="player2Canvas" width="400" height="400"></canvas>
+                    <div class="player-label">Player 2</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <p>Press <strong>SPACE</strong> or <strong>CLICK</strong> to jump!</p>
+            </div>
+        </div>
+
+        <div id="gameOver" class="game-over" style="display: none;">
+            <h2>Game Over!</h2>
+            <div id="winnerMessage"></div>
+            <div class="final-scores">
+                <div id="finalScores"></div>
+            </div>
+            <button id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game.js"></script>
+    
+    <footer class="game-footer">
+        <p>🦖 Made with ❤️ by <strong>Tevin</strong> 🦖</p>
+    </footer>
+</body>
+</html> 
